@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>English-Thai Machine Translation Models | airesearch.in.th</title>
+
+  <!-- Charset -->
+<meta charset="utf-8">
+<!-- Viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Search Engine -->
+<meta name="description" content="โมเดลแปลภาษา อังกฤษ-ไทย จากชุดข้อมูลกว่า 1 ล้าน คู่ประโยค">
+<meta name="image" content="https://airesearch.in.th/assets/img/releases/letters.jpg">
+<meta name="keywords"
+  content="model, demo, artificial intelligence, research, vistec, depa, vidyasirimedhi, vidyasirimedhi institute of science and technology, digital economy promotion agency, machine translation, open data, dataset, model, artificial intelligence research, research institute">
+<meta name="author" content="">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="English-Thai Machine Translation Models | airesearch.in.th">
+<meta itemprop="description" content="โมเดลแปลภาษา อังกฤษ-ไทย จากชุดข้อมูลกว่า 1 ล้าน คู่ประโยค">
+<meta itemprop="image" content="https://airesearch.in.th/assets/img/releases/letters.jpg">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="English-Thai Machine Translation Models | airesearch.in.th">
+<meta name="twitter:description" content="โมเดลแปลภาษา อังกฤษ-ไทย จากชุดข้อมูลกว่า 1 ล้าน คู่ประโยค">
+<meta name="twitter:image:src" content="https://airesearch.in.th/assets/img/releases/letters.jpg">
+<!-- Open Graph general -->
+<meta property="og:title" name="og:title" content="English-Thai Machine Translation Models">
+<meta property="og:description" name="og:description" content="โมเดลแปลภาษา อังกฤษ-ไทย จากชุดข้อมูลกว่า 1 ล้าน คู่ประโยค">
+<meta property="og:image" name="og:image" content="https://airesearch.in.th/assets/img/releases/letters.jpg">
+<meta property="og:url" name="og:url" content="https://airesearch.in.th/releases/machine-translation-models/">
+<meta property="og:site_name" name="og:site_name" content="airesearch.in.th">
+<meta property="og:locale" name="og:locale" content="en-US">
+<meta property="og:type" name="og:type" content="website">
+<meta property="fb:admins" name="fb:admins" content="106755957360414">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/assets/css/main.css" media="none" onload="if(media!='all')media='all'"><noscript><link rel="stylesheet" href="css.css"></noscript>
+
+  <!-- ICONS: DO NOT CHANGE ORDER! -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="194x194" href="/assets/favicon/favicon-194x194.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+<link rel="manifest" href="/assets/favicon/site.webmanifest">
+<link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#FFF200">
+<link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+<meta name="apple-mobile-web-app-title" content="airesearch.in.th">
+<meta name="application-name" content="airesearch.in.th">
+<meta name="msapplication-TileColor" content="#fff200">
+<meta name="msapplication-TileImage" content="/assets/favicon/mstile-144x144.png">
+<meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<!-- END OF ICONS -->
+  <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
+  media="none" onload="if(media!='all')media='all'"><noscript>
+  <link rel="stylesheet" href="css.css"></noscript>
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
+  media="none" onload="if(media!='all')media='all'"><noscript>
+  <link rel="stylesheet" href="css.css"></noscript>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+  integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous"
+  media="none" onload="if(media!='all')media='all'"><noscript>
+  <link rel="stylesheet" href="css.css"></noscript>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light py-0">
+  <div class="container">
+    <a class="navbar-brand py-2" href="/"><img loading="lazy"
+        src="/assets/img/logo/airesearch-logo.svg" alt="airesearch.in.th logo"></a>
+    <button class="navbar-toggler align-self-end mb-2 rounded-0 border-0" type="button" data-toggle="collapse"
+      data-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse align-self-end" id="navbar-toggler">
+      <ul class="navbar-nav my-2 my-lg-0 ml-auto font-weight-semibold">
+        <li class="nav-item" data-target=".navbar-collapse.show" data-toggle="collapse">
+          <a href="/#releases" class="nav-link">Releases</a>
+        <!-- <li class="nav-item" data-target=".navbar-collapse.show" data-toggle="collapse">
+          <a href="/#posts" class="nav-link">News+Stories</a>
+        </li> -->
+        
+        
+        <li
+          class="nav-item">
+          <a class="nav-link" href="/contact/">
+            Contact
+          </a>
+        </li>
+        
+        <li
+          class="nav-item d-none disabled">
+          <a class="nav-link" href="/">
+            Home
+          </a>
+        </li>
+        
+        <li
+          class="nav-item d-none disabled">
+          <a class="nav-link" href="/releases/">
+            Releases
+          </a>
+        </li>
+        
+        <li
+          class="nav-item d-none disabled">
+          <a class="nav-link" href="/posts/">
+            Posts
+          </a>
+        </li>
+        
+        <li
+          class="nav-item d-none disabled">
+          <a class="nav-link" href="/404.html">
+            404
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+  <div class="" style="min-height: 4.75rem;"></div>
+  <section class="release">
+  <section class="release-jumbotron text-light d-flex flex-col align-items-end position-relative" 
+    style="background-image: url('/assets/img/releases/letters.jpg');" >
+    <div class="w-100 h-100 release-jumbotron-filter position-absolute"></div>
+    <div class="container mb-4">
+      <div class="row align-items-stretch">
+        <div class="col-lg-10">
+          <h1>English-Thai Machine Translation Models</h1>
+          <p class="lead">โมเดลแปลภาษา อังกฤษ-ไทย จากชุดข้อมูลกว่า 1 ล้าน คู่ประโยค</p>
+        </div>
+        <div class="col-lg-2 d-flex flex-column my-auto pl-lg-0">
+          <span><i class="fas fa-code-branch fa-fw fa-sm"></i> v1.0</span>
+          <span><i class="far fa-calendar-alt fa-fw fa-sm"></i> 23 Jun 2020</span>
+          <div class="d-flex flex-row mt-2">
+            
+            <span class="badge badge-light mr-1">model</span>
+            
+            <span class="badge badge-light mr-1">demo</span>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container mt-5">
+    <div class="row">
+      <div class="col-lg-8">
+        <article class="text-justify">
+          <p>ศูนย์วิจัย AIResearch ซึ่งเกิดจากความร่วมมือระหว่าง VISTEC และ depa ได้ทำการเทรนโมเดลแปลภาษา (Machine Translation) สำหรับการแปลภาษาใน 2 คู่ภาษา ไทย→อังกฤษ และ อังกฤษ→ไทย จากชุดข้อมูลคู่ประโยคในภาษาอังกฤษ-ไทย (<code class="language-plaintext highlighter-rouge">scb-mt-en-th-2020</code>) ซึ่งมีจำนวนกว่า 1 ล้านคู่ประโยค และได้วัดประสิทธิภาพของโมเดลด้วย BLEU score กับข้อมูลชุดทดสอบจาก The International Conference on Spoken Language Translation (IWSLT) ในปี 2015 ซึ่งเป็น คู่ประโยค อังกฤษ-ไทย ที่ได้จากการถอดคำพูด (Transcription) จาก TED Talk จากผลการทดสอบพบว่า โมเดลแปลภาษาสำหรับ ภาษาไทย→อังกฤษ (<code class="language-plaintext highlighter-rouge">SCB_1M+TBASE-th-en_spm-spm_32000-joined_v1.0</code>) สามารถแปลภาษาได้มีประสิทธิภาพเทียบเท่าได้กับระบบแปลภาษาจาก Google Translation API (ทดสอบ ณ เดือนพฤษภาคม 2020)</p>
+
+<h2 id="transformer">Transformer</h2>
+
+<p>Transformer [Vaswani et al. 2017] เป็นโมเดลประเภท Sequence-to-Sequence ที่ออกแบบสำหรับการสร้างโมเดลแปลภาษา ซึ่ง Transformer นั้นถือว่า มีความแม่นยำสูงที่สุด ในปัจจุบัน (ปี 2020) อ้างอิงจากชุดข้อมูลทดสอบจาก จากงานประชุมทางวิชาการ Workshop on Statistical Machine Translation ปี 2013 (WMT2013) ในคู่ภาษา อังกฤษ→เยอรมัน</p>
+
+<p><img src="/assets/img/releases/machine_translation_models/eval_wmt2014_en_de.png" alt="Transformer Evaluation" /></p>
+
+<p style="text-align: center;">รูป 1: การวัดผลโมเดลแปลภาษาใน Architecture ต่างๆ บนชุดข้อมูลทดสอบจากงานประชุมวิชาการ WMT ในปี 2013 สำหรับคู่ภาษา อังกฤษ→เยอรมัน (WMT2013 en-de) ในช่วงระหว่างปี 2016 - 2020 (ข้อมูลจาก paperwithcode.com)</p>
+
+<p>สำหรับการเทรนโมเดลนั้น ทางทีมวิจัย ได้เทรนโมเดล Transformer แบบ Base ซึ่งมีจำนวนพารามิเตอร์ทั้งหมดกว่า 74 ล้านพารามิเตอร์ และใช้ Python library <code class="language-plaintext highlighter-rouge">fairseq</code> จาก Facebook AI Research [Ott et al. 2019] โดยเทรนโมเดลบน NVIDIA DGX-1 ซึ่งเป็น Cluster ของ GPU NVIDIA V100</p>
+
+<p>ชุดข้อมูลที่ใช้ในการเทรนโมเดลครั้งนี้มาจาก ชุดข้อมูลคู่ประโยคภาษาอังกฤษ-ไทย <code class="language-plaintext highlighter-rouge">(scb-mt-en-th-2020)</code> ซึ่งมีจำนวน 1,001,752 คู่ประโยค จากแหล่งที่มาต่างๆเช่น การจ้างนักแปลภาษา แปลบทสนทนาจากภาษาอังกฤษเป็นไทย และการ Crawl ข้อมูลจากเว็บไซต์ข่าวหรือองค์กร ที่มีเนื้อหาในทั้งสองภาษา โดยสามารถดูรายละเอียดเพิ่มเติมได้ที่ <a href="https://airesearch.in.th/releases/machine-translation-datasets">English-Thai Machine Translation Dataset</a></p>
+
+<h2 id="evaluation-results">Evaluation results</h2>
+
+<p>การเปรียบเทียบ BLEU score และ n-gram precision ระหว่าง ผลการแปลของโมเดลที่เทรนจาก ชุดข้อมูลคู่ประโยคภาษาอังกฤษ-ไทย <code class="language-plaintext highlighter-rouge">scb-mt-en-th-2020</code> (Our baseline) และ ผลการแปลจาก Google Translation API (ทดสอบและวัดผลใน เดือนพฤษภาคม 2020) โดยใช้ SacreBLEU [Post et al. 2018] (case sensitive / case-insentive) สำหรับภาษาอังกฤษเป็น Target language และ BLEU4 [Papineni et al. 2002] สำหรับภาษาไทยเป็น Target language</p>
+
+<p><img src="/assets/img/releases/machine_translation_models/eval_iwslt2015.png" alt="Evaluation Result" /></p>
+
+<h2 id="python-example">Python example</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">fairseq.models.transformer</span> <span class="kn">import</span> <span class="n">TransformerModel</span>
+
+<span class="n">MODEL_BASE_DIR</span> <span class="o">=</span> <span class="s">'./SCB_1M+TBASE_th-en_spm-spm_32000-joined_v1.0/models/'</span>
+<span class="n">VOCAB_BASE_DIR</span> <span class="o">=</span> <span class="s">'./SCB_1M+TBASE_th-en_spm-spm_32000-joined_v1.0/vocab/'</span>
+<span class="n">BPE_BASE_DIR</span> <span class="o">=</span> <span class="s">'./SCB_1M+TBASE_th-en_spm-spm_32000-joined_v1.0/bpe/'</span>
+
+<span class="n">th2en</span> <span class="o">=</span> <span class="n">TransformerModel</span><span class="p">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+            <span class="n">model_name_or_path</span><span class="o">=</span><span class="n">MODEL_BASE_DIR</span><span class="p">,</span>
+            <span class="n">checkpoint_file</span><span class="o">=</span><span class="s">'checkpoint.pt'</span><span class="p">,</span>
+            <span class="n">data_name_or_path</span><span class="o">=</span><span class="n">VOCAB_BASE_DIR</span><span class="p">,</span>
+            <span class="n">bpe</span><span class="o">=</span><span class="s">'sentencepiece'</span><span class="p">,</span>
+            <span class="n">sentencepiece_vocab</span><span class="o">=</span><span class="n">BPE_BASE_DIR</span> <span class="o">+</span> <span class="s">'spm.th.model'</span><span class="p">)</span>
+
+<span class="n">th2en</span><span class="p">.</span><span class="n">translate</span><span class="p">(</span><span class="s">"งั้นเอาเป็นเวนติ แบล็คแอนด์ไวท์มอคค่าใส่นมสดกับวิปครีม จากสตาร์บัคส์สาขาห้างเบิร์ชวิลล์นะคะ"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Output:
+so a venti black and white mocha with whole milk
+and whipped cream from the starbucks at the birchville mall.
+</code></pre></div></div>
+
+<p>นอกจากนี้ทางศูนย์วิจัยได้เตรียม Jupyter Notebook สำหรับการทดสอบการรันโมเดล Machine Translation ได้โดยทันทีผ่าน <a href="https://colab.research.google.com/drive/1b7Uo9Ic1UltWvC2S7-qqix5WUL-P86xD?usp=sharing">Google Colaboratory</a></p>
+
+<h2 id="versions">Versions</h2>
+
+<ul>
+  <li><strong>Version 1.0 (23 June 2020):</strong> โมเดล Pre-trained Transformer Base ที่เทรนจาก ชุดข้อมูลคู่ประโยคภาษาอังกฤษ-ไทย <code class="language-plaintext highlighter-rouge">scb-mt-en-th-2020</code> เวอร์ชั่น 1.0</li>
+</ul>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., … &amp; Polosukhin, I. (2017). Attention is all you need. In Advances in neural information processing systems (pp. 5998-6008).</li>
+  <li>Ott, M., Edunov, S., Baevski, A., Fan, A., Gross, S., Ng, N., Grangier, D., &amp; Auli, M. (2019). fairseq: A Fast, Extensible Toolkit for Sequence Modeling. NAACL-HLT.</li>
+  <li>Papineni, K., Roukos, S., Ward, T., &amp; Zhu, W. J. (2002, July). BLEU: a method for automatic evaluation of machine translation. In Proceedings of the 40th annual meeting on association for computational linguistics (pp. 311-318). Association for Computational Linguistics.</li>
+  <li>Post, M. (2018). A Call for Clarity in Reporting BLEU Scores. WMT.</li>
+</ul>
+
+        </article>
+      </div>
+      <section id="downloads" class="col-lg-4 download-items mt-4 mt-lg-0">
+        
+        <h3>Downloads</h3>
+        <div class="list-group rounded-0 border-0">
+          
+          <a href="https://github.com/vistec-AI/model-releases/releases/download/SCB_1M%2BTBASE_v1.0/SCB_1M+TBASE_en-th_moses-newmm_space_130000-130000_v1.0.tar.gz" class="list-group-item list-group-item-action download-item" target="_blank">
+            <h6 class="">SCB_1M+TBASE_en-th_moses-newmm_space_130000-130000_v1.0.tar.gz</h6>
+            <p class=""><small>Pre-trained en→th, word→word Transformer Base Model v1.0</small></p>
+            <small><i class="fas fa-download fa-sm fa-fw"></i> 1.75G</small><br>
+            <small><span data-toggle="tooltip" data-placement="bottom" title="d2fb125ba0283e93c82416ec473e8308556ac4834bd1942a004a21ad8143b746"><i
+                  class="fas fa-hashtag fa-sm fa-fw"></i> SHA256:
+                d2fb125ba0283e93c82416ec473...</span></small>
+          </a>
+          
+          <a href="https://github.com/vistec-AI/model-releases/releases/download/SCB_1M%2BTBASE_v1.0/SCB_1M+TBASE_en-th_moses-spm_130000-16000_v1.0.tar.gz" class="list-group-item list-group-item-action download-item" target="_blank">
+            <h6 class="">SCB_1M+TBASE_en-th_moses-spm_130000-16000_v1.0.tar.gz</h6>
+            <p class=""><small>Pre-trained en→th, word→bpe Transformer Base Model v1.0</small></p>
+            <small><i class="fas fa-download fa-sm fa-fw"></i> 1.09G</small><br>
+            <small><span data-toggle="tooltip" data-placement="bottom" title="4e8bb0a6323dc6c370d24f568775afa62011871467f474fbda03d4ac0b7681fa"><i
+                  class="fas fa-hashtag fa-sm fa-fw"></i> SHA256:
+                4e8bb0a6323dc6c370d24f56877...</span></small>
+          </a>
+          
+          <a href="https://github.com/vistec-AI/model-releases/releases/download/SCB_1M%2BTBASE_v1.0/SCB_1M+TBASE_en-th_spm-newmm_space_16000-130000_v1.0.tar.gz" class="list-group-item list-group-item-action download-item" target="_blank">
+            <h6 class="">SCB_1M+TBASE_en-th_spm-newmm_space_16000-130000_v1.0.tar.gz</h6>
+            <p class=""><small>Pre-trained en→th, bpe→word Transformer Base Model v1.0</small></p>
+            <small><i class="fas fa-download fa-sm fa-fw"></i> 1.22G</small><br>
+            <small><span data-toggle="tooltip" data-placement="bottom" title="5ae3b712d97af0d1025e909866764772c44cb9f22435c1e91e5e7fb3e833d2c0"><i
+                  class="fas fa-hashtag fa-sm fa-fw"></i> SHA256:
+                5ae3b712d97af0d1025e9098667...</span></small>
+          </a>
+          
+          <a href="https://github.com/vistec-AI/model-releases/releases/download/SCB_1M%2BTBASE_v1.0/SCB_1M+TBASE_en-th_spm-spm_32000-joined_v1.0.tar.gz" class="list-group-item list-group-item-action download-item" target="_blank">
+            <h6 class="">SCB_1M+TBASE_en-th_spm-spm_32000-joined_v1.0.tar.gz</h6>
+            <p class=""><small>Pre-trained en→th, bpe→bpe Transformer Base Model v1.0</small></p>
+            <small><i class="fas fa-download fa-sm fa-fw"></i> 667M</small><br>
+            <small><span data-toggle="tooltip" data-placement="bottom" title="016b9fb25f89c381271a098aeb04948bc4ed724cf211f061d561c3199f5f41c3"><i
+                  class="fas fa-hashtag fa-sm fa-fw"></i> SHA256:
+                016b9fb25f89c381271a098aeb0...</span></small>
+          </a>
+          
+          <a href="https://github.com/vistec-AI/model-releases/releases/download/SCB_1M%2BTBASE_v1.0/SCB_1M+TBASE_th-en_newmm-moses_130000-130000_v1.0.tar.gz" class="list-group-item list-group-item-action download-item" target="_blank">
+            <h6 class="">SCB_1M+TBASE_th-en_newmm-moses_130000-130000_v1.0.tar.gz</h6>
+            <p class=""><small>Pre-trained th→en, word→word Transformer Base Model v1.0</small></p>
+            <small><i class="fas fa-download fa-sm fa-fw"></i> 1.75G</small><br>
+            <small><span data-toggle="tooltip" data-placement="bottom" title="7e255e2690964a6387909015682118d3afcccacfaf38e26eb5c6cd3b074c671b"><i
+                  class="fas fa-hashtag fa-sm fa-fw"></i> SHA256:
+                7e255e2690964a6387909015682...</span></small>
+          </a>
+          
+          <a href="https://github.com/vistec-AI/model-releases/releases/download/SCB_1M%2BTBASE_v1.0/SCB_1M+TBASE_th-en_newmm-spm_130000-16000_v1.0.tar.gz" class="list-group-item list-group-item-action download-item" target="_blank">
+            <h6 class="">SCB_1M+TBASE_th-en_newmm-spm_130000-16000_v1.0.tar.gz</h6>
+            <p class=""><small>Pre-trained th→en, word→bpe Transformer Base Model v1.0</small></p>
+            <small><i class="fas fa-download fa-sm fa-fw"></i> 1.1G</small><br>
+            <small><span data-toggle="tooltip" data-placement="bottom" title="9d1d3d7e30c9cdb91823ec99125e2a2e1f58c1b9a3e84fca6e0abcfcb6f4cbd1"><i
+                  class="fas fa-hashtag fa-sm fa-fw"></i> SHA256:
+                9d1d3d7e30c9cdb91823ec99125...</span></small>
+          </a>
+          
+          <a href="https://github.com/vistec-AI/model-releases/releases/download/SCB_1M%2BTBASE_v1.0/SCB_1M+TBASE_th-en_spm-moses_16000-130000_v1.0.tar.gz" class="list-group-item list-group-item-action download-item" target="_blank">
+            <h6 class="">SCB_1M+TBASE_th-en_spm-moses_16000-130000_v1.0.tar.gz</h6>
+            <p class=""><small>Pre-trained th→en, bpe→word Transformer Base Model v1.0</small></p>
+            <small><i class="fas fa-download fa-sm fa-fw"></i> 1.21G</small><br>
+            <small><span data-toggle="tooltip" data-placement="bottom" title="92a68c4b4902d5fb1fba70f2849f09b0535a16a8f4a16277f8fb833d244989b8"><i
+                  class="fas fa-hashtag fa-sm fa-fw"></i> SHA256:
+                92a68c4b4902d5fb1fba70f2849...</span></small>
+          </a>
+          
+          <a href="https://github.com/vistec-AI/model-releases/releases/download/SCB_1M%2BTBASE_v1.0/SCB_1M+TBASE_th-en_spm-spm_32000-joined_v1.0.tar.gz" class="list-group-item list-group-item-action download-item" target="_blank">
+            <h6 class="">SCB_1M+TBASE_th-en_spm-spm_32000-joined_v1.0.tar.gz</h6>
+            <p class=""><small>Pre-trained th→en, bpe→bpe Transformer Base Model v1.0</small></p>
+            <small><i class="fas fa-download fa-sm fa-fw"></i> 667M</small><br>
+            <small><span data-toggle="tooltip" data-placement="bottom" title="69bec33d471114ef51a0564a48b3c5c528e19544464361d62509531c5bfad153"><i
+                  class="fas fa-hashtag fa-sm fa-fw"></i> SHA256:
+                69bec33d471114ef51a0564a48b...</span></small>
+          </a>
+          
+        </div>
+        
+      </section>
+    </div>
+  </section>
+</section>
+  <footer id="footer" class="footer container my-5">
+  <div class="border rounded-lg rounded"
+  style="width: 40vw; min-width: 18rem; max-width: 30rem; height: 0; border-width: 0.125rem !important;">
+</div>
+  <div class="row mt-4">
+    <div class="col-lg-9 mb-2">
+      <div class="row align-items-center">
+        <div class="col-auto mb-2">
+          <a href="https://www.vistec.ac.th" target="_blank"><img class="footer-logos" id="vistec-footer-logo"
+              loading="lazy" src="/assets/img/logo/vistec-logo-notext.svg"></a>
+        </div>
+        <div class="col-auto p-0 mb-2">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="col-auto mb-2">
+          <a href="https://www.depa.or.th" target="_blank"><img class="footer-logos" id="depa-footer-logo"
+              loading="lazy" src="/assets/img/logo/depa-logo.svg"></a>
+        </div>
+        <div class="col-lg-12 mb-3">
+          <h6 class="font-weight-semibold mb-1">VISTEC-depa Thailand Artificial Intelligence Research Institute</h6>
+          A collaborative effort between VISTEC and depa to build cutting-edge technologies capability from research to
+          utility with partners and society for technology advantages
+        </div>
+      </div>
+    </div>
+    <div class="social-row col-lg-3 mb-3 d-flex justify-content-lg-end align-items-start mt-lg-3">
+      <a class="ml-0 mr-4" href="https://www.facebook.com/AIResearch.in.th">
+        <i class="fab fa-fw fa-2x fa-facebook d-inline"></i>
+      </a>
+      <!-- <a class="mr-4" href="#"><i class="fab fa-fw fa-2x fa-youtube d-inline"></i></a> -->
+      <a class="mr-4" href="/contact/#enquiries"><i class="fas fa-fw fa-2x fa-envelope d-inline"></i></a>
+      <a class="mr-4" href="/contact/#enquiries"><i class="fas fa-fw fa-2x fa-phone-alt d-inline"></i></a>
+      <a class="mr-4" href="/contact/#offices"><i class="fas fa-fw fa-2x fa-map-marked-alt d-inline"></i></a>
+    </div>
+    <div class="col-lg-6 mb-3">
+      <a class="font-weight-semibold" href="/contact/#offices">Bangkok Office</a><br>
+      2nd Fl., Digital Economy Promotion Agency (depa)<br>
+      Ladprao Hills Building<br>
+      80 Soi Lat Phrao 4, Chom Phon<br>
+      Chatuchak, Bangkok 10900
+    </div>
+    <div class="col-lg-6 mb-3">
+      <a class="font-weight-semibold" href="/contact/#offices">Rayong Office</a><br>
+      3rd Fl., School of Information Science and Technology (IST),<br>
+      Vidyasirimedhi Institute of Science and Technology (VISTEC)<br>
+      555 Moo 1, Payupnai<br>
+      Wangchan, Rayong 21210
+    </div>
+    <div class="col-lg-12 mb-3">
+      <span class="font-weight-semibold">© All rights reserved</span><br>
+      <a href="">Terms of Use</a> | <a href="">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+  
+  <!-- Google Analytics -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-141096942-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+  <script>
+  (function trackOutbounds() {
+    var hitCallbackHandler = function (url, win) {
+      if (win) {
+        window.open(url, win);
+      } else {
+        window.location.href = url;
+      }
+    };
+    var addEvent = function (el, eventName, handler) {
+      if (el.addEventListener) {
+        el.addEventListener(eventName, handler);
+      } else {
+        el.attachEvent('on' + eventName, function () {
+          handler.call(el);
+        });
+      }
+    }
+    if (document.getElementsByTagName) {
+      var el = document.getElementsByTagName('a');
+      var getDomain = document.domain.split('.').reverse()[1] + '.' + document.domain.split('.').reverse()[0];
+      // Look thru each a element
+      for (var i = 0; i < el.length; i++) {
+        // Extract it's href attribute
+        var href = (typeof (el[i].getAttribute('href')) == 'string') ? el[i].getAttribute('href') : '';
+        // Query the href for the top level domain (xxxxx.com)
+        var myDomain = href.match(getDomain);
+        // If link is outbound and is not to this domain        
+        if ((href.match(/^(https?:|\/\/)/i) && !myDomain) || href.match(/^mailto\:/i)) {
+          // Add an event to click
+          addEvent(el[i], 'click', function (e) {
+            var url = this.getAttribute('href'), win = (typeof (this.getAttribute('target')) == 'string') ? this.getAttribute('target') : '';
+            console.log("add event", url);
+            // Log even to Analytics, once done, go to the link
+            ga('send', 'event', 'outbound', 'click', url,
+              { 'hitCallback': hitCallbackHandler(url, win), 'transport': 'beacon' },
+              { 'nonInteraction': 1 }
+            );
+            e.preventDefault();
+          });
+        }
+      }
+    }
+  })();
+</script>
+  
+</body>
+
+</html>
